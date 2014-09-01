@@ -25,11 +25,10 @@ class Courses extends CI_Controller {
         if (empty($data['name']) || strlen($data['name']) < 16)
         {
             $this->session->set_flashdata('error', 'Name needs to be at least 15 characters');
-            redirect('/courses/index');
         }
         else
         {
-            $add_course = $this->Course->add_course($data);
+            $this->Course->add_course($data);
         }
         redirect('/courses/index');
     }
